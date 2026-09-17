@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sakinwardsec",
+  "main": "worker.ts",
+  "compatibility_date": "2024-03-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "APP_URL": "https://sakinward.pages.dev"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SAKIN_SESSIONS",
+      "id": "f38cbb66b4a54366a8b3cbd25924a080"
+    }
+  ]
+}

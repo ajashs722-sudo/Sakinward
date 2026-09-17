@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", Roboto, sans-serif;
+    background: var(--sakin-bg, #0A1233);
+    color: var(--sakin-text, #F7F4EC);
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, .font-serif, .sakin-heading {
+    font-family: 'Marcellus', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono,
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.font-brand-display {
+  font-family: 'Marcellus', Georgia, serif;
+}
+
+.font-brand-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Scheherazade New', 'Amiri', serif;
+}
+
+.font-quran {
+  font-family: 'Amiri Quran', 'Scheherazade New', 'Amiri', serif;
+  line-height: 2.3;
+}
+
+/* ==========================================================================
+   SAKINWARD BRAND TOKENS (OBSIDIAN BLACK, CLASSIC LINEN, OAT BROWN, RAW SIENNA)
+   ========================================================================== */
+
+:root {
+  /* Brand Core Colors */
+  --sakin-obsidian: #0A1233;      /* Obsidian Black: Deep Cinematic Navy */
+  --sakin-obsidian-dark: #060B20;
+  --sakin-obsidian-light: #111B45;
+  --sakin-linen: #FAF8F3;         /* Classic Linen */
+  --sakin-linen-dim: #DCD8CD;
+  --sakin-linen-subtle: #A3A096;
+  --sakin-oat: #DBC66E;           /* Oat Brown / Sand Gold Accent */
+  --sakin-sienna: #8A7410;        /* Raw Sienna / Deep Antique Gold */
+  
+  /* Layout & Geometry */
+  --nur-shape-pill: 999px;
+  --nur-shape-card: 24px;
+  --nur-shape-tile: 20px;
+  --nur-shape-tabbar: 34px;
+  
+  --nur-font-family: 'Inter', -apple-system, sans-serif;
+  --nur-display-font: 'Marcellus', serif;
+  
+  --nur-motion-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --nur-motion-press: 150ms;
+  --nur-press-scale: 0.96;
+  
+  --nur-tabbar-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Default Theme: Sakinward Obsidian Cinematic Night */
+.nur-dark {
+  --nur-color-bg-top: #060B20;
+  --nur-color-bg-mid: #0A1233;
+  --nur-color-bg-bottom: #040817;
+  --nur-gradient-page: radial-gradient(circle at 50% 0%, #152258 0%, #0A1233 50%, #05081A 100%);
+  --nur-gradient-player: linear-gradient(180deg, #0A1233 0%, #060B20 100%);
+
+  --nur-color-on-bg: #F7F4EC;
+  --nur-color-on-bg-secondary: #DBC66E;
+  --nur-color-on-bg-tertiary: #A3A096;
+  --nur-color-link: #DBC66E;
+
+  --nur-color-accent: #DBC66E;
+  --nur-color-accent-deep: #8A7410;
+  --nur-color-badge-new: #DBC66E;
+  --nur-color-on-badge: #0A1233;
+
+  --nur-color-cta: #DBC66E;
+  --nur-color-on-cta: #0A1233;
+  --nur-color-pill: rgba(13, 22, 60, 0.92);
+  --nur-color-on-pill: #F7F4EC;
+
+  --nur-color-glass: rgba(10, 18, 51, 0.88);
+  --nur-color-glass-card: #0D173E;
+  --nur-card-bg: #0D173E;
+  --nur-card-bg-rgb: 13, 23, 62;
+  --nur-gradient-card: linear-gradient(180deg, #111E4E 0%, #0A1233 100%);
+  --nur-border-glass: rgba(219, 198, 110, 0.22);
+  --nur-border-highlight: #DBC66E;
+  --nur-glass-blur: 16px;
+  --nur-glass-saturate: 160%;
+
+  --nur-color-progress: #DBC66E;
+  --nur-color-progress-track: rgba(247, 244, 236, 0.15);
+  --nur-color-thumb: #F7F4EC;
+
+  --nur-active-card-bg: #132257;
+  --nur-active-card-text: #DBC66E;
+  --nur-active-card-border: #DBC66E;
+}
+
+/* Light Theme: Sakinward Classic Linen Serenity */
+.nur-light {
+  --nur-color-bg-top: #FAF8F2;
+  --nur-color-bg-mid: #F7F4EC;
+  --nur-color-bg-bottom: #EDE5D5;
+  --nur-gradient-page: radial-gradient(circle at 50% 0%, #E3F1F7 0%, #F7F4EC 60%, #EBE3D3 100%);
+  --nur-gradient-player: linear-gradient(180deg, #FFFFFF 0%, #F7F4EC 100%);
+
+  --nur-color-on-bg: #0A1233;
+  --nur-color-on-bg-secondary: #8A7410;
+  --nur-color-on-bg-tertiary: #5E657D;
+  --nur-color-link: #8A7410;
+
+  --nur-color-accent: #8A7410;
+  --nur-color-accent-deep: #DBC66E;
+  --nur-color-badge-new: #0A1233;
+  --nur-color-on-badge: #F7F4EC;
+
+  --nur-color-cta: #0A1233;
+  --nur-color-on-cta: #F7F4EC;
+  --nur-color-pill: rgba(255, 255, 255, 0.95);
+  --nur-color-on-pill: #0A1233;
+
+  --nur-color-glass: rgba(255, 255, 255, 0.92);
+  --nur-color-glass-card: #FFFFFF;
+  --nur-card-bg: #FFFFFF;
+  --nur-card-bg-rgb: 255, 255, 255;
+  --nur-gradient-card: linear-gradient(180deg, #FFFFFF 0%, #FAF8F2 100%);
+  --nur-border-glass: rgba(138, 116, 16, 0.2);
+  --nur-border-highlight: #8A7410;
+  --nur-glass-blur: 16px;
+  --nur-glass-saturate: 160%;
+
+  --nur-color-progress: #8A7410;
+  --nur-color-progress-track: rgba(10, 18, 51, 0.12);
+  --nur-color-thumb: #0A1233;
+
+  --nur-active-card-bg: #FAF6ED;
+  --nur-active-card-text: #8A7410;
+  --nur-active-card-border: #8A7410;
+}
+
+/* UI Utility Classes */
+.nur-tabbar {
+  position: fixed;
+  bottom: var(--nur-tabbar-bottom);
+  left: var(--nur-inset-screen, 16px);
+  right: var(--nur-inset-screen, 16px);
+  border-radius: var(--nur-shape-tabbar, 34px);
+  background: var(--nur-color-glass);
+  backdrop-filter: blur(var(--nur-glass-blur));
+  -webkit-backdrop-filter: blur(var(--nur-glass-blur));
+  border: 1px solid var(--nur-border-glass);
+}
+
+.nur-glass {
+  background: var(--nur-color-glass);
+  backdrop-filter: blur(var(--nur-glass-blur));
+  -webkit-backdrop-filter: blur(var(--nur-glass-blur));
+  border: 1px solid var(--nur-border-glass);
+}
+
+.nur-card {
+  background: var(--nur-card-bg);
+  border: 1px solid var(--nur-border-glass);
+  border-radius: var(--nur-shape-card);
+}
+
+.nur-pill {
+  background: var(--nur-color-pill);
+  color: var(--nur-color-on-pill);
+  border-radius: var(--nur-shape-pill);
+  border: 1px solid var(--nur-border-glass);
+}
+
+.nur-btn {
+  transition: transform var(--nur-motion-press) var(--nur-motion-spring), background-color 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+  touch-action: manipulation;
+}
+
+.nur-btn:active {
+  transform: scale(var(--nur-press-scale));
+}
+
+.glass-panel {
+  background: var(--nur-color-glass);
+  backdrop-filter: blur(var(--nur-glass-blur));
+  -webkit-backdrop-filter: blur(var(--nur-glass-blur));
+  border: 1px solid var(--nur-border-glass);
+  color: var(--nur-color-on-bg);
+}
+
+.glass-modal {
+  background: var(--nur-card-bg);
+  border: 1px solid var(--nur-border-glass);
+  color: var(--nur-color-on-bg);
+}
+
+.glass-pill {
+  background: var(--nur-color-pill);
+  color: var(--nur-color-on-pill);
+  border: 1px solid var(--nur-border-glass);
+}
+
+.nur-active-slot {
+  background: var(--nur-active-card-bg) !important;
+  color: var(--nur-active-card-text) !important;
+  border: 1.5px solid var(--nur-active-card-border) !important;
+  box-shadow: 0 4px 20px rgba(219, 198, 110, 0.25);
+}
+
+.nur-active-slot * {
+  color: var(--nur-active-card-text) !important;
+}
+
+/* ==========================================================================
+   GLOBAL SCROLLBAR ERADICATION (100% INVISIBLE SCROLLBARS EVERYWHERE)
+   ========================================================================== */
+*, *::before, *::after {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;     /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;            /* Chrome, Safari and Opera */
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* ==========================================================================
+   CUSTOM LUXURY AUDIO SLIDER & FORM CONTROLS
+   ========================================================================== */
+.sakin-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sakin-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #DBC66E;
+  border: 2.5px solid #060B20;
+  box-shadow: 0 0 12px rgba(219, 198, 110, 0.7), 0 2px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sakin-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 16px rgba(219, 198, 110, 0.9), 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.sakin-slider::-webkit-slider-thumb:active {
+  transform: scale(1.25);
+}
+
+.sakin-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #DBC66E;
+  border: 2.5px solid #060B20;
+  box-shadow: 0 0 12px rgba(219, 198, 110, 0.7), 0 2px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.sakin-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+}

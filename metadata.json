@@ -1,0 +1,13 @@
+{
+  "name": "Sakinward – Islamic Mindfulness & Spiritual Companion",
+  "description": "Sakinward is a premium, beautifully crafted Islamic mindfulness, Quranic contemplation, and spiritual lifestyle application featuring live prayer times, complete Quran with audio ambience, dhikr & tasbih tracker, and an intelligent DeepSeek-powered spiritual companion Sakin AI.",
+  "requestFramePermissions": [
+    "geolocation",
+    "accelerometer",
+    "gyroscope",
+    "magnetometer"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
