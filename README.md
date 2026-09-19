@@ -1,101 +1,91 @@
 # 🌿 Sakinward — Islamic Mindfulness & Spiritual Companion
 
-**Sakinward** is a premium, beautifully crafted Islamic mindfulness, Quranic contemplation, and spiritual lifestyle application. It features a full-stack architecture powered by **Sakin AI** (supporting Gemini and DeepSeek models), a live **Telegram Bot (`@Sakinward_bot`)**, dynamic prayer times, soundscapes, and comprehensive daily trackers.
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://sakinward.pages.dev)
+[![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Gemini AI](https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
+[![DeepSeek](https://img.shields.io/badge/DeepSeek_R1-4A154B?style=for-the-badge&logo=openai&logoColor=white)](https://deepseek.com)
+
+**Sakinward** is a premium, beautifully crafted Islamic mindfulness, Quranic contemplation, and spiritual lifestyle application. It features a full-stack architecture powered by **Sakin AI** (supporting Gemini 2.5/3.6 and DeepSeek-R1 models), a live **Telegram Bot (`@Sakinward_bot`)**, dynamic prayer times, soundscapes, and comprehensive daily trackers.
+
+🌐 **Live Web Application:** [https://sakinward.pages.dev](https://sakinward.pages.dev)
 
 ---
 
-## 🚀 Fast Deployment
+## 🌟 Key Features
 
-Deploy Sakinward instantly to your cloud hosting of choice.
+* **🤖 Sakin AI Assistant:** Intelligent Islamic Q&A and spiritual advice powered by Google GenAI (`@google/genai`) and DeepSeek-R1 reasoning models.
+* **⚡ Cloudflare Workers & KV Sessions:** Globally distributed edge proxy ([worker.ts](file:///data/data/com.termux/files/home/sajda-app/worker.ts)) with persistent session history stored in Cloudflare KV (`SAKIN_SESSIONS`).
+* **📲 Telegram Bot (`@Sakinward_bot`):** Dual support for long-polling background server and Cloudflare Worker webhooks (`/api/telegram/webhook`).
+* **🕋 Dynamic Prayer Engine & Qibla Finder:** Accurate prayer schedules, Hijri calendar synchronization, and interactive Leaflet maps.
+* **🎵 Soundscape Synthesizer:** Fluid audio soundscapes for guided breathing, Quranic recitation, and meditation.
+* **🔒 Encrypted Client Memory:** Secure local persistent state keeping user data completely private.
 
-### ⚡ Option A: Static Frontend to Cloudflare Pages
-If you only need the static frontend client with local features:
+---
 
-[![Deploy to Cloudflare Pages](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/)
+## 🏗️ Technical Stack
 
-*Note: For server-side AI proxy and long-polling Telegram bot features, please configure Option B (Full-Stack Node.js Server).*
+| Layer | Technology |
+|---|---|
+| **Frontend UI** | React 19, TypeScript, Tailwind CSS v4, Motion, GSAP |
+| **Edge Server Runtime** | Cloudflare Workers (`worker.ts`) / Node.js Express (`server.ts`) |
+| **Session & Storage** | Cloudflare KV (`SAKIN_SESSIONS`) |
+| **AI Models** | Google Gemini 2.5/3.6 (`@google/genai`), DeepSeek-R1 |
+| **Maps & Media** | Leaflet, HLS.js, Canvas Confetti |
 
-### 🐳 Option B: Full-Stack to Google Cloud Run / Docker
-To run both the rich interactive frontend and the live continuous Telegram Bot:
+---
 
-[![Deploy to Cloud Run](https://deploy.google.com/buttons/deploy.svg)](https://deploy.google.com/?git_repo=https://github.com/GoogleCloudPlatform/run-on-gcp)
+## ⚙️ Environment Variables Setup
+
+Create a `.env` file in the root directory (or configure via Cloudflare Wrangler secrets):
+
+```env
+# Telegram Bot Token from @BotFather
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+
+# AI API Keys
+GEMINI_API_KEY=your_gemini_api_key_here
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+
+# Application Domain
+APP_URL=https://sakinward.pages.dev
+```
+
+---
+
+## 🚀 Installation & Local Setup
+
+### 1. Kutubxonalarni o'rnatish (Install Dependencies)
+```bash
+npm install
+```
+
+### 2. Dasturiy Rejimda Ishga Tushirish (Development Mode)
+```bash
+npm run dev
+```
+
+### 3. Production Deploy (Cloudflare Workers / Pages)
+```bash
+# Production uchun build
+npm run build
+
+# Cloudflare deployment
+npx wrangler deploy
+```
 
 ---
 
 ## 🇺🇿 O'zbekcha Yo'riqnoma
 
-Sakinward — islomiy ma'rifat, qalb xotirjamligi va sunnat amallarini tartibga soluvchi mukammal raqamli platforma. Unda **Sakin AI** sun'iy intellekti hamda **Telegram Bot** integratsiyasi mavjud.
+**Sakinward** — islomiy ma'rifat, qalb xotirjamligi, namoz vaqtlari va sunnat amallarini tartibga soluvchi mukammal raqamli platforma. Unda **Sakin AI** sun'iy intellekti hamda **Telegram Bot** integratsiyasi mavjud.
 
-### ⚙️ Loyihani sozlash va ishga tushirish
-
-1. **Kutubxonalarni o'rnatish:**
-   ```bash
-   npm install
-   ```
-
-2. **Muhit o'zgaruvchilari (`.env`):**
-   Loyiha ildizida `.env` faylini yarating va quyidagi kalitlarni kiriting:
-   ```env
-   # Telegram Bot tokenini @BotFather orqali oling
-   TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-
-   # Gemini AI xizmati kaliti
-   GEMINI_API_KEY=your_gemini_api_key_here
-
-   # (Ixtiyoriy) DeepSeek AI kaliti
-   DEEPSEEK_API_KEY=your_deepseek_api_key_here
-   ```
-
-3. **Dasturni dasturlash rejimida ishga tushirish:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Ishlab chiqarish (Production) uchun yig'ish:**
-   ```bash
-   npm run build
-   npm run start
-   ```
+### ⚙️ Asosiy Imkoniyatlar:
+1. **Sakin AI Bot:** Gemini hamda DeepSeek modellari asosida ishlovchi aqlli islomiy yordamchi.
+2. **Cloudflare KV Seanslari:** Chat tarixini `SAKIN_SESSIONS` chekka (edge) ma'lumotlar omborida saqlaydi.
+3. **Telegram Bot Integratsiyasi:** Telegram tarmog'idagi foydalanuvchilarga darhol javob beruvchi bot aloqasi.
+4. **Namoz Vaqtlari va Qibla:** Aniq geografik koordinatalar asosida hisoblanuvchi namoz jadvali va xarita.
 
 ---
 
-## 🇬🇧 English Guide
-
-### ⚙️ Installation & Local Setup
-
-1. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Environment Variables (`.env`):**
-   Create a `.env` file in the root directory:
-   ```env
-   TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-   GEMINI_API_KEY=your_gemini_api_key_here
-   DEEPSEEK_API_KEY=your_deepseek_api_key_here
-   ```
-
-3. **Run Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build & Start Full-Stack Server:**
-   ```bash
-   npm run build
-   npm run start
-   ```
-
----
-
-## 🕌 Key Features & Architecture
-
-* **Sakin AI Client & Bot:** Integrated client-side chat in the web application using high-fidelity typography (`Marcellus`, `Amiri`, `Scheherazade New`).
-* **Continuous Telegram Polling:** Long-polling backend processor in `server.ts` that handles immediate responses using Telegram's message-deletion placeholder mechanics.
-* **Prayer Engine & Custom Audio Synth:** Fluid soundscape synthesizer for guided breathing exercises, and custom Hijri calendar syncing.
-* **Encrypted Client Memory:** Secure local persistent states keeping user preferences completely private.
-
----
-
-*Designed with ❤️ for spiritual tranquility.*
+Designed with ❤️ for spiritual tranquility.
